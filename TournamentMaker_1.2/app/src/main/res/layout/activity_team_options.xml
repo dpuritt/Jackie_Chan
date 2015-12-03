@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".TeamOptions">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Team Options"
+            android:id="@+id/titleTextView"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/avatarImage"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_logo_00"
+            android:layout_weight="1" />
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="25dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/teamNameField"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:hint="(Please enter team name)"
+                android:onClick="onTeamOptionsEditName" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Team Name"
+                android:id="@+id/teamNameTextField"
+                android:layout_gravity="center_horizontal" />
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="25dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/teamAddressField"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:hint="(Please enter a team location)"
+                android:onClick="onTeamOptionsEditAddress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Team Address"
+                android:id="@+id/teamAddressTextField"
+                android:layout_gravity="center_horizontal" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="right" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Save Team"
+            android:id="@+id/addTeam"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="onTeamOptionsSave" />
+
+    </LinearLayout>
+</RelativeLayout>
