@@ -15,8 +15,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class QuickStart extends AppCompatActivity {
     Boolean roundRobin = false;
@@ -38,19 +40,19 @@ public class QuickStart extends AppCompatActivity {
     }
 
     public void onQuickStartEditName(View v) {
-        EditText _name = (EditText) findViewById(R.id.teamAddressField);
+     /*   EditText _name = (EditText) findViewById(R.id.teamAddressField);
         if((_name.equals(""))||(_name.equals(null))){}
         else{
             this.name = _name.getText().toString();
-        }
+        }*/
     }
 
     public void onQuickStartEditTeamNumber(View v) {
-        EditText _numTeams = (EditText) findViewById(R.id.teamAddressField);
+       /* EditText _numTeams = (EditText) findViewById(R.id.teamAddressField);
         if((_numTeams.equals(""))||(_numTeams.equals(null))){}
         else{
             this.numTeams = Integer.parseInt(_numTeams.getText().toString());
-        }
+        } */
     }
 
     public void onSaveButton(View v){
@@ -70,6 +72,16 @@ public class QuickStart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_start);
+
+        Spinner spinnerQS = (Spinner) findViewById(R.id.spinnerQS);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapterQS1 = ArrayAdapter.createFromResource(this,
+                R.array.tournament_type, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapterQS1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinnerQS.setAdapter(adapterQS1);
+
 /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 

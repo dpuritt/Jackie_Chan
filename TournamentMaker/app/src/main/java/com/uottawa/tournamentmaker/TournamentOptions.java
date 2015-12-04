@@ -87,11 +87,7 @@ public class TournamentOptions extends AppCompatActivity {
         startActivity(new Intent(TournamentOptions.this, TeamOptions.class));
     }
 
-   // public void onTOListViewItemClick(ListView l, View v, int position, long id){
-        //String t = items[position];
-     //   android.widget.Toast.makeText(this, "i work", Toast.LENGTH_SHORT).show();
 
-  //  }
 
 
 
@@ -109,28 +105,5 @@ public class TournamentOptions extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
-
-        ListView listV = (ListView) findViewById(R.id.listViewTO);
-        ArrayList<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("Team 1");
-        your_array_list.add("Team 2");
-        your_array_list.add("Team 3");
-        your_array_list.add("Team 4");
-        your_array_list.add("Team 5");
-        your_array_list.add("Team 6");
-        your_array_list.add("Team 7");
-        your_array_list.add("Team 8");
-        your_array_list.add("Team 9");
-        your_array_list.add("Team 10");
-        your_array_list.add("Team 11");
-        your_array_list.add("Team 12");
-        your_array_list.add("Team 13");
-        your_array_list.add("Team 14");
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,your_array_list);
-        listV.setAdapter(adapter1);
-
-
-
     }
 }

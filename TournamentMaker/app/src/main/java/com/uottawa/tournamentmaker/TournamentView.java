@@ -24,7 +24,7 @@ public class TournamentView extends AppCompatActivity {
         // start tournament object
     }
     public void onEditScoreTournamentView(View v){
-        // Figure out how we are editing the score of matches
+        startActivity(new Intent(TournamentView.this, EditMatchScorePage.class));
     }
 
 

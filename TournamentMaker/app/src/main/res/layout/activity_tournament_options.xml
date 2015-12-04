@@ -38,8 +38,8 @@
                 android:layout_gravity="center_horizontal">
 
                 <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:id="@+id/spinnerTO"
                     android:spinnerMode="dialog"
                     android:dropDownSelector="#db1818"
@@ -62,14 +62,17 @@
                 android:id="@+id/teamSelection"
                 android:layout_gravity="center_horizontal" />
 
-            <ListView
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:id="@+id/listViewTO"
-                android:layout_gravity="center_horizontal"
-                android:choiceMode="multipleChoice"
-                android:layout_weight="0.85"
-                android:onClick="onTOListViewItemClick" />
+                android:layout_height="wrap_content"
+                android:layout_weight="0.86">
+
+                <ListView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/listView" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -81,7 +84,7 @@
                 <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:text="Add Team"
                     android:layout_weight="1"
                     android:id="@+id/addTeam"
@@ -90,33 +93,25 @@
                 <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:text="Edit Team"
                     android:id="@+id/button"
                     android:layout_weight="1"
                     android:onClick="onEditTeamTournamentOpt" />
 
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Delete Team"
-                    android:id="@+id/deleteTeam"
-                    android:layout_weight="1"
-                    android:onClick="onDeleteTeamTournamentOpt" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="bottom"
-                android:layout_weight="0.1">
+                android:layout_weight="0.12">
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
-                    android:layout_width="177dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
                     android:text="Save"
                     android:id="@+id/saveEdit"
                     android:layout_weight="1"

@@ -53,6 +53,7 @@ public class TeamOptions extends AppCompatActivity {
     }
 
 
+
     //Method for input of logo
     //this.logo = logo;
 
@@ -60,6 +61,7 @@ public class TeamOptions extends AppCompatActivity {
         team.setName(name);
         team.setAddress(address);
         team.setLogo(logo);
+
 
         //Return to previous page with new team with edits
     }

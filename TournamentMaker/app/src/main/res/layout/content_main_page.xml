@@ -15,19 +15,6 @@
         android:layout_below="@+id/linearLayout2">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="185dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView"
-                android:clickable="true" />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="175dp"
             android:layout_height="match_parent"
             android:weightSum="1"
@@ -46,29 +33,32 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Add Tournament"
+                android:text="@string/newTournament"
                 android:id="@+id/addTournamentButton"
                 android:layout_weight="0.25"
                 android:clickable="true"
-                android:onClick="onTournamentOption" />
+                android:onClick="onCreateNewTournament"
+                android:background="#4c65d5" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Add Quick Tournament"
+                android:text="New Quick Tournament"
                 android:id="@+id/addQuickTournamentButton"
                 android:layout_weight="0.25"
                 android:clickable="true"
-                android:onClick="onAddQuickTournament"/>
+                android:onClick="onAddQuickTournament"
+                android:background="#41AE5D" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:id="@+id/removeTournamentButton"
-                android:text="Remove Tournament"
+                android:text="Delete Tournament"
                 android:layout_weight="0.25"
                 android:clickable="true"
-                android:onClick="onRemoveTournament" />
+                android:onClick="MPonDeleteTournament"
+                android:background="#f9403d" />
         </LinearLayout>
 
     </LinearLayout>
@@ -108,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:text="Help / Info"
                 android:id="@+id/infoButton"
-                android:clickable="true" />
+                android:clickable="true"
+                android:onClick="MPonHelpButton" />
         </LinearLayout>
     </LinearLayout>
 

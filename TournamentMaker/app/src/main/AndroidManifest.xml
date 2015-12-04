@@ -37,7 +37,9 @@
         <activity
             android:name=".TournamentView"
             android:label="@string/title_activity_tournament_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HelpPage" />
+        <activity android:name=".EditMatchScorePage"></activity>
     </application>
 
 </manifest>
