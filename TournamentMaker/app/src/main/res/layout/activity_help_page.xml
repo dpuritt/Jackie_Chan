@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.uottawa.tournamentmaker.HelpPage">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=
+                "HOW TO SETUP A QUICK TOURNAMENT \n \n
+1) Click on the “New Quick Tournament” button on the Main Menu page to gain access to the QuickStart page. \n
+2)If there’s already an existing Tournament, the system will display a dialog warning you on if you wish to overwrite the existing Tournament. \n
+3) The next step is to enter the Tournament Name, specify the number of teams in the Tournament and choose a particular Tournament Style. \n
+4) Click on save to store current settings.  \n
+5) You will now be returned to the main page with an unstarted Tournament with the following information you provided. \n
+ \n
+ \n
+ \n
+HOW TO SETUP A CUSTOM TOURNAMENT \n\n
+1) Click on the “New Tournament” button on the Main Menu page to gain access to the Tournament Options page. \n
+2) If there’s already an existing Tournament, the system will display a dialog warning you on if you wish to overwrite the existing Tournament. \n
+3) The next step is to select the Tournament Style, Tournament Teams. \n
+4) After selection, you have the option to add, edit information or delete teams in the Tournament.  \n
+5) Click on save to store current settings. \n
+6) You will now be returned to the main page with an unstarted Tournament with the following information you provided. \n
+\n
+\n
+\n
+HOW TO EDIT AN UN-STARTED TOURNAMENT  \n\n
+1) Click on the “View Tournament” button on the Main Menu page to gain access to the Tournament View page. \n
+2) Click on the “Edit tournament” button to gain access to the Tournament Options page. \n
+3) You can now change Tournament style, add, edit information or delete teams in the Tournament. \n
+4) Click on save to store current settings.  \n
+5) You will now be returned to the main page with an unstarted Tournament with the following information you provided. \n
+ \n
+ \n
+ \n
+HOW TO START A TOURNAMENT \n\n
+1) Click on the “View Tournament” button on the Main Menu page to gain access to the Tournament View page. \n
+2) Click on the “Start Tournament” button.  \n
+ \n
+ \n
+ \n
+HOW TO EDIT SCORE OF A MATCH IN A TOURNAMENT \n\n
+1) Click on the “View Tournament” button on the Main Menu page to gain access to the Tournament View page. \n
+2) Click on the “Edit Score” button.  \n
+3) You will now be redirected to a window were you can input scores of a match. \n
+4) Click on save to store current settings.  \n
+5) You will now be returned to the view Tournament page. \n
+ \n
+ \n
+ \n
+HOW TO VIEW SCOREBOARD OF A TOURNAMENT \n\n
+1) Click on the “View Tournament” button on the Main Menu page to gain access to the Tournament View page. \n
+2) Click on the “view Scoreboard” button.  \n
+ \n
+ \n
+ \n
+HOW TO DELETE A TOURNAMENT \n\n
+1) Click on the “Delete Tournament” button on the Main Menu page. \n
+2) System prompts the user if user wishes to continue. \n
+3) User selects yeahh. \n
+4) Tournament will now be deleted. You will now be returned to the view Tournament page. \n
+ \n
+\n
+\n
+HOW TO EDIT A TEAM \n\n
+1) If on the Main Menu page, click on the “View Tournament” button to proceed to the Tournament view page. \n
+2) Click on the “Edit Tournament” button to proceed to the Tournament Options page. \n
+3) Select the team which you will like to edit and click on the edit button. \n
+4) You will now be transitioned to the Team Options page.  \n
+5) The Team Name and address can now be changed.  \n
+6) Click on save team to store current settings.  \n
+7) You will now be returned to the Tournament Options page. \n
+\n
+\n
+\n
+HOW TO DELETE A TEAM \n\n
+1) If on the Main Menu page, click on the “View Tournament” button to proceed to the Tournament view page. \n
+2) Click on the “Edit Tournament” button to proceed to the Tournament Options page. \n
+3) Select the team which you will like to delete and click on the edit button. \n
+4) You will now be transitioned to the Team Options page.  \n
+5) Click on delete team button to delete the selected team. \n
+6) System prompts the user if user wishes to continue. \n
+7) User selects yeahh. \n
+8) Team will now be deleted. You will now be returned to the Tournament Options page. \n
+\n
+\n
+\n              " />
+    </ScrollView>
+
+</RelativeLayout>
