@@ -30,6 +30,7 @@ public class TournamentOptions extends AppCompatActivity {
     int teamCount = 0;
     int maxTeams = 32;
     String name;
+    SaveManager sv;
 
     public TournamentOptions(Tournament _tournament){ // called if I am editing an existing tournament
         this.tournament = _tournament;
@@ -65,6 +66,8 @@ public class TournamentOptions extends AppCompatActivity {
         tournament.setTeams(teams);
 
         // Return back to main page or tournament view page (potentially return the tournament copy)
+        sv.writeData(tournament);
+        finish(); //returns to previous screen
     }
     public void onAddTeamTournamentOpt(View v){ // not sure if i need something other than View v to make this method be called and populate the list after
       if (teamCount+1 == maxTeams){
@@ -105,5 +108,7 @@ public class TournamentOptions extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        tournament = sv.loadData();
     }
 }

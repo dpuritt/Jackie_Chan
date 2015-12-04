@@ -12,7 +12,8 @@ public class TournamentView extends AppCompatActivity {
 //Things to do:
     //
     // The UI for edit Score / Match Edit needs to be built
-
+    Tournament tournament; //tournament object to do stuff with
+    SaveManager sv; //object used for managing save file
 
     public void onViewScoreboardTournamentView(View v){
         startActivity(new Intent(TournamentView.this, Scoreboard.class));
@@ -36,7 +37,7 @@ public class TournamentView extends AppCompatActivity {
         setContentView(R.layout.activity_tournament_view);
 /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
-
+        tournament = sv.loadData();
     }
 
 }

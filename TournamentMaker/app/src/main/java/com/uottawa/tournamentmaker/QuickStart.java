@@ -25,6 +25,8 @@ public class QuickStart extends AppCompatActivity {
     Boolean both = false; //if user selected both types
     int numTeams = 0;
     String name = ("Default name");
+    Tournament tournament; //tournament object to do stuff with
+    SaveManager sv; //object used for managing save file
 
     public void onSetRoundRobin(View v){
         this.roundRobin = true;
@@ -56,8 +58,9 @@ public class QuickStart extends AppCompatActivity {
     }
 
     public void onSaveButton(View v){
-        Tournament tournament = new Tournament (name,numTeams);
+        tournament = new Tournament (name,numTeams);
         tournament.quickStart(name,roundRobin,both,numTeams);
+        sv.writeData(tournament);
 
         // now one goes to Tournament View and they must pass this tournament created above for use in TournamentView
 
@@ -74,17 +77,17 @@ public class QuickStart extends AppCompatActivity {
         setContentView(R.layout.activity_quick_start);
 
         Spinner spinnerQS = (Spinner) findViewById(R.id.spinnerQS);
-// Create an ArrayAdapter using the string array and a default spinner layout
+        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterQS1 = ArrayAdapter.createFromResource(this,
                 R.array.tournament_type, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+        // Specify the layout to use when the list of choices appears
         adapterQS1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+        // Apply the adapter to the spinner
         spinnerQS.setAdapter(adapterQS1);
 
-/*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-
+        tournament = sv.loadData();
     }
 }

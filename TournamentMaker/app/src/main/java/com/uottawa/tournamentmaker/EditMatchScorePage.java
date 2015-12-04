@@ -9,6 +9,8 @@ public class EditMatchScorePage extends AppCompatActivity {
 
     int scoreTeamA;
     int scoreTeamB;
+    Tournament tournament; //tournament object to do stuff with
+    SaveManager sv; //object used for managing save file
 
     public void onEditScoreTeamAGoals(View v){
     //Edit value of scoreTeamA
@@ -30,5 +32,7 @@ public class EditMatchScorePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_match_score_page);
+
+        tournament = sv.loadData();
     }
 }
