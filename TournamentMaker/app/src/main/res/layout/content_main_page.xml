@@ -28,7 +28,12 @@
                 android:id="@+id/viewTournamentButton"
                 android:layout_weight="0.25"
                 android:clickable="true"
-                android:onClick="onTournamentView" />
+                android:onClick="onTournamentView"
+                android:background="#4c65d5" />
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px" />
 
             <Button
                 android:layout_width="match_parent"
@@ -38,7 +43,11 @@
                 android:layout_weight="0.25"
                 android:clickable="true"
                 android:onClick="onCreateNewTournament"
-                android:background="#4c65d5" />
+                android:background="#41AE5D" />
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px" />
 
             <Button
                 android:layout_width="match_parent"
@@ -48,7 +57,11 @@
                 android:layout_weight="0.25"
                 android:clickable="true"
                 android:onClick="onAddQuickTournament"
-                android:background="#41AE5D" />
+                android:background="#EF6C00" />
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="20px" />
 
             <Button
                 android:layout_width="match_parent"
@@ -99,7 +112,8 @@
                 android:text="Help / Info"
                 android:id="@+id/infoButton"
                 android:clickable="true"
-                android:onClick="MPonHelpButton" />
+                android:onClick="MPonHelpButton"
+                android:layout_gravity="right" />
         </LinearLayout>
     </LinearLayout>
 

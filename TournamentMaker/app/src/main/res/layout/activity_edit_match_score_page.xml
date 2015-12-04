@@ -59,8 +59,10 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/editText4"
                     android:layout_weight="0.15"
-                    android:inputType="numberSigned"
+                    android:digits="0123456789"
+                    android:inputType="number"
                     android:onClick="onEditScoreTeamAGoals"
+
                     android:imeOptions="actionDone"/>
             </LinearLayout>
         </LinearLayout>
@@ -109,7 +111,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/editText3"
-                    android:inputType="numberSigned"
+                    android:digits="0123456789"
+                    android:inputType="number"
                     android:onClick="onEditScoreTeamBGoals"
                     android:imeOptions="actionDone"/>/>
             </LinearLayout>
