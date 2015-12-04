@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tournament Maker</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_quick_start">Quick Start</string>
+    <string name="title_activity_tournament_options">Tournament Options</string>
+    <string name="title_activity_scoreboard">Scoreboard</string>
+    <string name="title_activity_team_options">Team Options</string>
+    <string name="title_activity_tournament_view">Tournament View</string>
+    <string name="roundRobin">Round Robin</string>
+    <string name="knockoutStyle">Knockout</string>
+    <string name="combination">Combination</string>
+    <string name="startTournament">Start Tournament</string>
+    <string name="viewScoreboard">View Scoreboard</string>
+    <string name="newTournament">New Tournament</string>
+    <string name="teamA">Team A</string>
+    <string name="teamB">Team B</string>
+    <string-array name="tournament_type">
+        <item>Round Robin</item>
+        <item>Knockout</item>
+        <item>Combination</item>
+    </string-array>
+</resources>
