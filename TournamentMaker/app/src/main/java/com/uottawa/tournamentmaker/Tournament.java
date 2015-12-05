@@ -1,15 +1,19 @@
 package com.uottawa.tournamentmaker;
 
+import java.io.Serializable;
+
 /**
  * Created by Owner on 11/30/2015.
  */
-public class Tournament {
+public class Tournament implements Serializable {
 
     String name;
     Boolean started = false;
     Boolean roundRobin = false;
-    Boolean both = false; //if user selected both types
-    int numTeams = 0;
+    Boolean both = false; //if user selected both types]
+    Boolean exists;
+    int numTeams;
+    int teamCount;
     Team[] teams;
     Match[] matches;
     int nextMatchIndex = 0;
@@ -20,6 +24,7 @@ public class Tournament {
         name = _name;
         numTeams = _numTeams;
         teams = new Team[numTeams];
+        teamCount= 0;
 //    for(int i = 0; i < numTeams; i++){
 //      teams[i] = null;
 //    }
@@ -32,6 +37,7 @@ public class Tournament {
         numTeams = _numTeams;
         teams = new Team[numTeams];
         teamsRemaining = numTeams;
+        teamCount= 0;
     }
 
     public void quickStart(String _name, Boolean _roundRobin, Boolean _both, int _numTeams){
@@ -45,6 +51,7 @@ public class Tournament {
         for(int i = 0; i < numTeams; i++){
             int num = i + 1;
             teams[i] = new Team("Team " + num, "");
+            teamCount++;
         }
     }
 
@@ -52,6 +59,8 @@ public class Tournament {
     public void setName(String _name){
         name = _name;
     }
+
+    public void setExists(Boolean x){}
 
     public void setStarted(Boolean b){
         started = b;
@@ -74,6 +83,10 @@ public class Tournament {
     public String getName(){
         return name;
     }
+
+    public int getNumTeams(){return numTeams;}
+
+    public int getTeamCount(){return teamCount;}
 
     public Team[] getTeams(){
         return teams;
@@ -99,13 +112,16 @@ public class Tournament {
 
     //adds team to first available spot
     public Boolean addTeam(Team newTeam){
-        for(int i = 0; i < numTeams; i++){
-            if (teams[i] == null){
-                teams[i] = newTeam;
-                return true;
-            }
+        Team[] newTeams = new Team[numTeams+1];
+
+        for(int i = 0; i < teams.length; i++){
+            newTeams[i] = teams[i];
         }
-        return false; //failed to find spot
+        newTeams[teamCount] = newTeam;
+        teamCount++;
+        numTeams++;
+        teams = newTeams;
+        return true;
     }
 
     //sorts all teams by rank from highest score to lowest by quicksort

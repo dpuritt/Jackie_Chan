@@ -12,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -30,7 +31,8 @@ public class TournamentOptions extends AppCompatActivity {
     int teamCount = 0;
     int maxTeams = 32;
     String name;
-    SaveManager sv;
+    //final ListView editTeamList = (ListView) findViewById(R.id.listViewTournamentOptions);
+
 
     public TournamentOptions(Tournament _tournament){ // called if I am editing an existing tournament
         this.tournament = _tournament;
@@ -66,31 +68,40 @@ public class TournamentOptions extends AppCompatActivity {
         tournament.setTeams(teams);
 
         // Return back to main page or tournament view page (potentially return the tournament copy)
-        sv.writeData(tournament);
+        MainPage.sv.writeData(tournament);
         finish(); //returns to previous screen
     }
     public void onAddTeamTournamentOpt(View v){ // not sure if i need something other than View v to make this method be called and populate the list after
-      if (teamCount+1 == maxTeams){
-          // Filled possible list of teams
-      }
-        else{
+
           String defaultLocation = "No One Cares";
           String defaultName = ("Team "+ (teamCount+1));
-          teams[teamCount] = new Team(defaultName, defaultLocation);
-          teamCount ++;
+        Team newTeam = new Team(defaultName, defaultLocation);
+          tournament.addTeam(newTeam);
 
-          // populate list for user to see
-      }
+          ListView lv = (ListView) findViewById(R.id.listViewTournamentOptions);
+          ArrayList <String> teamList = new ArrayList<String>();
+
+          for(int i = 0; i < teams.length; i++){
+              teamList.add(teams[i].getName());
+//              teamList.add("hello");
+//              teamList.add("hello");
+//              teamList.add("hello");
+          }
+
+          ArrayAdapter<String> teamListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, teamList);
+          lv.setAdapter(teamListAdapter);
+
     }
 
-    public void onEditTeamTournamentOpt(View v){ // right now it goes straight to Team Options page, it has no team object to be edited, It must pass with the team object
-        startActivity(new Intent(TournamentOptions.this, TeamOptions.class));
+    public void onEditTeamListTournamentOptions(View v) {
+/*
+        editTeamList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long myLong) {
+                String selectedFromList = (String)(editTeamList.getItemAtPosition(myItemInt));
+            }
+        });
+*/
     }
-    public void onDeleteTeamTournamentOpt(View v){  // right now it goes straight to Team Options page, it has no team object to be deleted
-        startActivity(new Intent(TournamentOptions.this, TeamOptions.class));
-    }
-
-
 
 
 
@@ -100,15 +111,56 @@ public class TournamentOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tournament_options);
 
+        tournament = MainPage.sv.loadData();
+
+        roundRobin = tournament.isRoundRobin();
+        both = tournament.isBoth(); //if user selected both types
+        teams = tournament.getTeams();
+        teamCount = 0;
+        maxTeams = tournament.getNumTeams();
+        name = tournament.getName();
+
+
+
         Spinner spinner = (Spinner) findViewById(R.id.spinnerTO);
-// Create an ArrayAdapter using the string array and a default spinner layout
+        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.tournament_type, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+        // Apply the adapter to the spinner
+
         spinner.setAdapter(adapter);
 
-        tournament = sv.loadData();
+
+
+        ListView lv = (ListView) findViewById(R.id.listViewTournamentOptions);
+        ArrayList <String> teamList = new ArrayList<String>();
+
+        for(int i = 0; i < teams.length; i++){
+            teamList.add(teams[i].getName());
+            System.out.println(teams[i].getName());
+        }
+        System.out.println(teams.length);
+
+//            teamList.add("Team 1");
+//        teamList.add("Team 2");
+//        teamList.add("Team 3");
+//        teamList.add("Team 4");
+//        teamList.add("Team 5");
+//        teamList.add("Team 6");
+//        teamList.add("Team 7");
+//        teamList.add("Team 8");
+//        teamList.add("Team 9");
+//        teamList.add("Team 10");
+//        teamList.add("Team 12");
+//        teamList.add("Team 13");
+//        teamList.add("Team 14");
+//        teamList.add("Team 15");
+//        teamList.add("Team 16");
+
+
+        ArrayAdapter<String> teamListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, teamList);
+        lv.setAdapter(teamListAdapter);
     }
 }

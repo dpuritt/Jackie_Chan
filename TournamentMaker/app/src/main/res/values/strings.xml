@@ -15,6 +15,7 @@
     <string name="teamA">Team A</string>
     <string name="teamB">Team B</string>
     <string name="longStringHelpPage" />
+    <string name="teamName" />
     <string-array name="tournament_type">
         <item>Round Robin</item>
         <item>Knockout</item>
