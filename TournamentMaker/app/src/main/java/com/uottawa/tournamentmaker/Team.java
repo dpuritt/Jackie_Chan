@@ -1,9 +1,11 @@
 package com.uottawa.tournamentmaker;
 
+import java.io.Serializable;
+
 /**
  * Created by Owner on 11/30/2015.
  */
-public class Team {
+public class Team implements Serializable {
 
     String name;
     int rank = -1;

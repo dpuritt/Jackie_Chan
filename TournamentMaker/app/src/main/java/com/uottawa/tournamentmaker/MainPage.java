@@ -22,34 +22,91 @@ import java.io.ObjectInputStream;
 public class MainPage extends AppCompatActivity {
 
     Tournament tournament; //tournament object to do stuff with
-    SaveManager sv; //object used for managing save file
+    public final static SaveManager sv = new SaveManager(); //object used for managing save file
+    Boolean tournamentExists = false;
+
+public static SaveManager getSV(){
+    return sv;
+}
 
     public void MPonDeleteTournament(View v) {
-        //set all values of tournament back to defaults (equivalent to empty)
+
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            tournament = new Tournament("Empty_Tournament", true, false, 0);
+                            sv.writeData(tournament);
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            //No button clicked
+                            break;
+                    }
+                }
+            };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you wish to delete current tournament?").setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener).show();
+
     }
     public void onAddQuickTournament(View v){
-        sv.writeData(tournament);
-        Intent i = new Intent(MainPage.this, QuickStart.class);
-        startActivity(i);
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+
+                        Intent i = new Intent(MainPage.this, QuickStart.class);
+                        startActivity(i);
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure to create a new Tournament?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
     }
 
 
     public void onTournamentView(View v){ // this must select a tournament from the list before it can call TournamentView. it must pass this tournament to tournamentview so that it can access info over there
-        sv.writeData(tournament);
         Intent i = new Intent(MainPage.this, TournamentView.class);
         startActivity(i);
     }
 
     public void MPonHelpButton(View v){
-        sv.writeData(tournament);
         Intent i = new Intent(MainPage.this, HelpPage.class);
         startActivity(i);
     }
 
     public void onCreateNewTournament(View v){
-        sv.writeData(tournament);
-        Intent i = new Intent(MainPage.this, TournamentOptions.class);
-        startActivity(i);
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        Intent i = new Intent(MainPage.this, TournamentOptions.class);
+                        startActivity(i);
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you wish to create a new Tournament?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
     }
 
 
@@ -57,12 +114,16 @@ public class MainPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_page);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar)
+
+        sv.setFileContext(this.getApplicationContext());
 
         tournament = sv.loadData();
+
+        if(tournament == null) {
+            sv.writeData(this.getApplicationContext());
+        }
+
     }
 
 }

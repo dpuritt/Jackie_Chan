@@ -18,53 +18,43 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 public class QuickStart extends AppCompatActivity {
     Boolean roundRobin = false;
     Boolean both = false; //if user selected both types
-    int numTeams = 0;
-    String name = ("Default name");
+    int numTeams;
+    String name = ("Quick Start");
     Tournament tournament; //tournament object to do stuff with
-    SaveManager sv; //object used for managing save file
 
-    public void onSetRoundRobin(View v){
-        this.roundRobin = true;
-    }
-
-    public void onSetKnockout(View v){
-        this.roundRobin = false;
-    }
-
-    public void onSetCombination(View v){
-        this.roundRobin = true;
-        this.both = true;
-    }
-
-    public void onQuickStartEditName(View v) {
-     /*   EditText _name = (EditText) findViewById(R.id.teamAddressField);
-        if((_name.equals(""))||(_name.equals(null))){}
-        else{
-            this.name = _name.getText().toString();
-        }*/
-    }
 
     public void onQuickStartEditTeamNumber(View v) {
-       /* EditText _numTeams = (EditText) findViewById(R.id.teamAddressField);
-        if((_numTeams.equals(""))||(_numTeams.equals(null))){}
-        else{
-            this.numTeams = Integer.parseInt(_numTeams.getText().toString());
-        } */
     }
 
     public void onSaveButton(View v){
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerQS);
+        int style = spinner.getSelectedItemPosition();
+        if (style == 0){
+            roundRobin = true;
+        }
+        else if (style == 1){
+            roundRobin = false;
+        }
+        else{
+            roundRobin = true;
+            both = true;
+        }
+
+        NumberPicker _numTeams = (NumberPicker) findViewById(R.id.numberPickerQS);
+        numTeams = _numTeams.getValue();
         tournament = new Tournament (name,numTeams);
         tournament.quickStart(name,roundRobin,both,numTeams);
-        sv.writeData(tournament);
+        MainPage.sv.writeData(tournament);
 
         // now one goes to Tournament View and they must pass this tournament created above for use in TournamentView
 
-        startActivity(new Intent(QuickStart.this, TournamentView.class));
+        finish();
     }
 
 
@@ -85,9 +75,14 @@ public class QuickStart extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinnerQS.setAdapter(adapterQS1);
 
+        NumberPicker numberPickerQS = (NumberPicker) findViewById(R.id.numberPickerQS);
+        numberPickerQS.setMinValue(2);
+        numberPickerQS.setMaxValue(100);
+
+
         /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-        tournament = sv.loadData();
+        tournament = MainPage.sv.loadData();
     }
 }

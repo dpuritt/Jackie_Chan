@@ -71,7 +71,7 @@
                 <ListView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/listView" />
+                    android:id="@+id/listViewTournamentOptions" />
             </LinearLayout>
 
             <LinearLayout
@@ -89,15 +89,6 @@
                     android:layout_weight="1"
                     android:id="@+id/addTeam"
                     android:onClick="onAddTeamTournamentOpt" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="Edit Team"
-                    android:id="@+id/button"
-                    android:layout_weight="1"
-                    android:onClick="onEditTeamTournamentOpt" />
 
             </LinearLayout>
 
