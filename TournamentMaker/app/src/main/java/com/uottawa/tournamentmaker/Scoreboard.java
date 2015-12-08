@@ -10,10 +10,6 @@ import android.view.View;
 public class Scoreboard extends AppCompatActivity {
 
     Tournament tournament; //tournament object to do stuff with
-    SaveManager sv; //object used for managing save file
-
-
-
 
 
     @Override
@@ -22,7 +18,7 @@ public class Scoreboard extends AppCompatActivity {
         setContentView(R.layout.activity_scoreboard);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        tournament = sv.loadData();
+        tournament = MainPage.sv.loadData();
 
     }
 
