@@ -26,7 +26,7 @@ public class QuickStart extends AppCompatActivity {
     Boolean both = false; //if user selected both types
     int numTeams;
     String name = ("Quick Start");
-    Tournament tournament; //tournament object to do stuff with
+    //Tournament tournament; //tournament object to do stuff with
 
 
     public void onQuickStartEditTeamNumber(View v) {
@@ -48,9 +48,9 @@ public class QuickStart extends AppCompatActivity {
 
         NumberPicker _numTeams = (NumberPicker) findViewById(R.id.numberPickerQS);
         numTeams = _numTeams.getValue();
-        tournament = new Tournament (name,numTeams);
-        tournament.quickStart(name,roundRobin,both,numTeams);
-        MainPage.sv.writeData(tournament);
+        MainPage.tournament = new Tournament (name,numTeams);
+        MainPage.tournament.quickStart(name, roundRobin, both, numTeams);
+        MainPage.sv.writeData(MainPage.tournament);
 
         // now one goes to Tournament View and they must pass this tournament created above for use in TournamentView
 
@@ -83,6 +83,6 @@ public class QuickStart extends AppCompatActivity {
         /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-        tournament = MainPage.sv.loadData();
+        //tournament = MainPage.sv.loadData();
     }
 }

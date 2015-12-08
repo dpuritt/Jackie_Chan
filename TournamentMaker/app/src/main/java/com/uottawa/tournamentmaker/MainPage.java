@@ -21,7 +21,7 @@ import java.io.ObjectInputStream;
 
 public class MainPage extends AppCompatActivity {
 
-    Tournament tournament; //tournament object to do stuff with
+    public static Tournament tournament; //tournament object to do stuff with
     public final static SaveManager sv = new SaveManager(); //object used for managing save file
     Boolean tournamentExists = false;
 

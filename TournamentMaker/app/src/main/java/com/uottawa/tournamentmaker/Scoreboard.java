@@ -9,7 +9,7 @@ import android.view.View;
 
 public class Scoreboard extends AppCompatActivity {
 
-    Tournament tournament; //tournament object to do stuff with
+    //Tournament tournament; //tournament object to do stuff with
 
 
     @Override
@@ -18,7 +18,7 @@ public class Scoreboard extends AppCompatActivity {
         setContentView(R.layout.activity_scoreboard);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        tournament = MainPage.sv.loadData();
+        //tournament = MainPage.sv.loadData();
 
     }
 
