@@ -9,7 +9,7 @@ public class EditMatchScorePage extends AppCompatActivity {
 
     int scoreTeamA;
     int scoreTeamB;
-    Tournament tournament; //tournament object to do stuff with
+    //Tournament tournament; //tournament object to do stuff with
 
     public void onEditScoreTeamAGoals(View v){
     //Edit value of scoreTeamA
@@ -32,6 +32,6 @@ public class EditMatchScorePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_match_score_page);
 
-        tournament = MainPage.sv.loadData();
+        //tournament = MainPage.sv.loadData();
     }
 }

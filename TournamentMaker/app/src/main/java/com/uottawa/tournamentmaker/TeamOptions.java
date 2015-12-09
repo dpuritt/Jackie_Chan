@@ -20,8 +20,8 @@ public class TeamOptions extends AppCompatActivity {
     String name;
     int logo = 0;
     String address;
-    Tournament tournament; //tournament object to do stuff with
-    SaveManager sv = new SaveManager(); //object used for managing save file
+    //Tournament tournament; //tournament object to do stuff with
+    //SaveManager sv = new SaveManager(); //object used for managing save file
 
     public TeamOptions(Team team){
         this.team = team;
@@ -64,7 +64,7 @@ public class TeamOptions extends AppCompatActivity {
         team.setAddress(address);
         team.setLogo(logo);
 
-        sv.writeData(tournament);
+        MainPage.sv.writeData(MainPage.tournament);
         //Return to previous page with new team with edits
     }
 
@@ -75,8 +75,8 @@ public class TeamOptions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_options);
-        sv = MainPage.getSV();
-        tournament = sv.loadData();
+        //sv = MainPage.getSV();
+        //tournament = sv.loadData();
 
 
     }

@@ -24,7 +24,7 @@ import java.util.List;
 
 public class TournamentOptions extends AppCompatActivity {
 
-    Tournament tournament; // Tournament that options holds onto to edit
+    //Tournament tournament; // Tournament that options holds onto to edit
     Boolean roundRobin = false;
     Boolean both = false; //if user selected both types
     Team[] teams;
@@ -35,7 +35,7 @@ public class TournamentOptions extends AppCompatActivity {
 
 
     public TournamentOptions(Tournament _tournament){ // called if I am editing an existing tournament
-        this.tournament = _tournament;
+        MainPage.tournament = _tournament;
         this.roundRobin = _tournament.isRoundRobin();
         this.both = _tournament.isBoth();
         this.teams = _tournament.getTeams();
@@ -47,12 +47,12 @@ public class TournamentOptions extends AppCompatActivity {
     }
     public TournamentOptions(String name){ //called if first time editing a new tournament (if we choose to make user enter name when they create a tournament from main page)
         this.name = name;
-        this.tournament = new Tournament(name, maxTeams);
+        MainPage.tournament = new Tournament(name, maxTeams);
         this.teams = new Team[maxTeams];
     }
     public TournamentOptions(){ //called if first time editing a new tournament (if we choose to make user edit name on tournament options page)
         this.name = "Default Tournament Name";
-        this.tournament = new Tournament(name, maxTeams);
+        MainPage.tournament = new Tournament(name, maxTeams);
         this.teams = new Team[maxTeams];
     }
 
@@ -63,12 +63,12 @@ public class TournamentOptions extends AppCompatActivity {
 
     public void onSaveTournamentOpt(View v){
         //sets all the variables to the tournament object that it was passed
-        tournament.setRoundRobin(roundRobin);
-        tournament.setBoth(both);
-        tournament.setTeams(teams);
+        MainPage.tournament.setRoundRobin(roundRobin);
+        MainPage. tournament.setBoth(both);
+        MainPage.tournament.setTeams(teams);
 
         // Return back to main page or tournament view page (potentially return the tournament copy)
-        MainPage.sv.writeData(tournament);
+        MainPage.sv.writeData(MainPage.tournament);
         finish(); //returns to previous screen
     }
     public void onAddTeamTournamentOpt(View v){ // not sure if i need something other than View v to make this method be called and populate the list after
@@ -76,7 +76,7 @@ public class TournamentOptions extends AppCompatActivity {
           String defaultLocation = "No One Cares";
           String defaultName = ("Team "+ (teamCount+1));
         Team newTeam = new Team(defaultName, defaultLocation);
-          tournament.addTeam(newTeam);
+        MainPage.tournament.addTeam(newTeam);
 
           ListView lv = (ListView) findViewById(R.id.listViewTournamentOptions);
           ArrayList <String> teamList = new ArrayList<String>();
@@ -111,14 +111,14 @@ public class TournamentOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tournament_options);
 
-        tournament = MainPage.sv.loadData();
+        MainPage.tournament = MainPage.sv.loadData();
 
-        roundRobin = tournament.isRoundRobin();
-        both = tournament.isBoth(); //if user selected both types
-        teams = tournament.getTeams();
+        roundRobin = MainPage.tournament.isRoundRobin();
+        both = MainPage.tournament.isBoth(); //if user selected both types
+        teams = MainPage.tournament.getTeams();
         teamCount = 0;
-        maxTeams = tournament.getNumTeams();
-        name = tournament.getName();
+        maxTeams = MainPage.tournament.getNumTeams();
+        name = MainPage.tournament.getName();
 
 
 

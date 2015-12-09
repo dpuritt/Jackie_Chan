@@ -18,13 +18,13 @@ public class TournamentView extends AppCompatActivity {
 //Things to do:
     //
     // The UI for edit Score / Match Edit needs to be built
-    Tournament tournament; //tournament object to do stuff with
+    //Tournament tournament; //tournament object to do stuff with
 
     public void onViewScoreboardTournamentView(View v){
         startActivity(new Intent(TournamentView.this, Scoreboard.class));
     }
     public void onEditTournamentTournamentView(View v){
-        if(tournament.hasStarted()==false) {
+        if(MainPage.tournament.hasStarted()==false) {
             Intent i = new Intent(TournamentView.this, TournamentOptions.class);
             startActivity(i);
         }
@@ -47,8 +47,8 @@ public class TournamentView extends AppCompatActivity {
     }
 
     public void onStartTournamentTournamentView(View v){
-        if(tournament.hasStarted()==false) {
-            tournament.setStarted(true);
+        if(MainPage.tournament.hasStarted()==false) {
+            MainPage.tournament.setStarted(true);
         }
         else{
 
@@ -80,7 +80,7 @@ public class TournamentView extends AppCompatActivity {
 /*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-        tournament = MainPage.sv.loadData();
+        //tournament = MainPage.sv.loadData();
 
         ListView lv = (ListView) findViewById(R.id.listView2);
         ArrayList<String> matchList = new ArrayList<String>();
